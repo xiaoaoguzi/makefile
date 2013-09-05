@@ -1,0 +1,23 @@
+
+my:main.o sub.o sum.o div.o add.o
+	gcc main.o sub.o sum.o div.o add.o -o my
+
+main.o:main.c test.h city.h
+	gcc -c main.c
+add.o:add.c test.h
+	gcc -c add.c
+sub.o:sub.c test.h
+	gcc -c sub.c
+div.o:div.c test.h
+	gcc -c div.c
+sum.o:sum.c test.h
+	gcc -c sum.c
+
+clean:
+	rm -rf *.o my
+
+install:
+	cp my  /usr/bin
+uninstall:
+	mv /usr/bin/my  ./
+
